@@ -206,34 +206,7 @@
                     </div>
                 </div>
 	            <?php wp_reset_query(); ?>
-                <div class="box">
-	                <?php
-	                $the_images_category = new WP_Query(array(
-		                'cat' => $redux_demo['add_images'],
-		                'posts_per_page' => '5'
-	                ))
-	                ?>
-                    <div class="box-header header-photo">
-                        <h2><?php
-	                        global $post;
 
-	                        $category = get_the_category($post->ID);
-	                        echo $category[0]->cat_name;
-	                        ?></h2>
-                    </div>
-                    <div class="box-content">
-                        <div id="owl-demo-2" class="owl-carousel">
-	                        <?php if ($the_images_category->have_posts()) : $the_images_category->the_post(); ?>
-                            <div class="item">
-                                <img src="<?php echo get_the_post_thumbnail_url() ?>" />
-
-                            </div>
-	                        <?php endif; ?>
-	                        <?php wp_reset_query(); ?>
-
-                        </div>
-                    </div>
-                </div>
 
 
                 <div class="box">
