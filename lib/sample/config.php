@@ -74,8 +74,8 @@
         //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
         'allow_sub_menu'       => true,
         // Show the sections below the admin menu item or not
-        'menu_title'           => __( 'Sample Options', 'redux-framework-demo' ),
-        'page_title'           => __( 'Sample Options', 'redux-framework-demo' ),
+        'menu_title'           => __( 'Theme Options', 'redux-framework-demo' ),
+        'page_title'           => __( 'Theme Options', 'redux-framework-demo' ),
         // You will need to generate a Google API key to use this feature.
         // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
         'google_api_key'       => '',
@@ -144,7 +144,7 @@
         'hints'                => array(
             'icon'          => 'el el-question-sign',
             'icon_position' => 'right',
-            'icon_color'    => 'lightgray',
+            'icon_color'    => 'blue',
             'icon_size'     => 'normal',
             'tip_style'     => array(
                 'color'   => 'red',
@@ -172,23 +172,7 @@
     );
 
     // ADMIN BAR LINKS -> Setup custom links in the admin bar menu as external items.
-    $args['admin_bar_links'][] = array(
-        'id'    => 'redux-docs',
-        'href'  => '#',
-        'title' => __( 'Documentation', 'redux-framework-demo' ),
-    );
 
-    $args['admin_bar_links'][] = array(
-        //'id'    => 'redux-support',
-        'href'  => '#',
-        'title' => __( 'Support', 'redux-framework-demo' ),
-    );
-
-    $args['admin_bar_links'][] = array(
-        'id'    => 'redux-extensions',
-        'href'  => '#',
-        'title' => __( 'Extensions', 'redux-framework-demo' ),
-    );
 
     // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
     $args['share_icons'][] = array(
@@ -306,7 +290,13 @@
                 'id'=>'top_news_category',
                 'data'=>'category',
                 'type'  => 'select',
-            )
+            ),
+	        array(
+		        'title'=>'Add Images',
+		        'id'=>'add_images',
+		        'data'=>'category',
+		        'type'  => 'select',
+	        ),
             
         ),
         

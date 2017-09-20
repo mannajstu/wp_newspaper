@@ -205,35 +205,37 @@
                         </div>
                     </div>
                 </div>
+	            <?php wp_reset_query(); ?>
                 <div class="box">
+	                <?php
+	                $the_images_category = new WP_Query(array(
+		                'cat' => $redux_demo['add_images'],
+		                'posts_per_page' => '5'
+	                ))
+	                ?>
                     <div class="box-header header-photo">
-                        <h2>Photos</h2>
+                        <h2><?php
+	                        global $post;
+
+	                        $category = get_the_category($post->ID);
+	                        echo $category[0]->cat_name;
+	                        ?></h2>
                     </div>
                     <div class="box-content">
                         <div id="owl-demo-2" class="owl-carousel">
+	                        <?php if ($the_images_category->have_posts()) : $the_images_category->the_post(); ?>
                             <div class="item">
-                                <img src="images/1.jpg" />
-                                <img src="images/2.jpg" />
+                                <img src="<?php echo get_the_post_thumbnail_url() ?>" />
+
                             </div>
-                            <div class="item">
-                                <img src="images/3.jpg" />
-                                <img src="images/5.jpg" />
-                            </div>
-                            <div class="item">
-                                <img src="images/8.jpg" />
-                                <img src="images/9.jpg" />
-                            </div>
-                            <div class="item">
-                                <img src="images/10.jpg" />
-                                <img src="images/11.jpg" />
-                            </div>
-                            <div class="item">
-                                <img src="images/12.jpg" />
-                                <img src="images/13.jpg" />
-                            </div>
+	                        <?php endif; ?>
+	                        <?php wp_reset_query(); ?>
+
                         </div>
                     </div>
                 </div>
+
+
                 <div class="box">
                     <div class="box-header header-natural">
                         <h2>Natural</h2>
