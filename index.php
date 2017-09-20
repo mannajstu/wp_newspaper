@@ -121,24 +121,26 @@
                 <?php
                 $the_top_news_category = new WP_Query(array(
                     'cat' => $redux_demo['top_news_category'],
-                    'posts_per_page' => '5'
+                    'posts_per_page' => '9'
                         ))
                 ?>
                 <div class="box">
 
                     <div class="box-header header-vimeo">
                         <h2><?php
+	                        if ($the_top_news_category->have_posts()  ){
+		                        $the_top_news_category->the_post();
                             global $post;
 
                             $category = get_the_category($post->ID);
-                            echo $category[0]->cat_name;
+                            echo $category[0]->cat_name;}
                             ?></h2>
-                            
+
                     </div>
                     <div class="box-content">
                         <div class="row">
                             <?php
-                            $i = 0;
+                            $i = 1;
 
                             while ($the_top_news_category->have_posts()) : $the_top_news_category->the_post();
                                 ?>
