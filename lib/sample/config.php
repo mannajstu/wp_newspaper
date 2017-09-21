@@ -292,8 +292,8 @@
                 'type'  => 'select',
             ),
 	        array(
-		        'title'=>'Add Images',
-		        'id'=>'add_images',
+		        'title'=>'Add Natural News',
+		        'id'=>'natural_category',
 		        'data'=>'category',
 		        'type'  => 'select',
 	        ),
