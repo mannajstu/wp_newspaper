@@ -118,99 +118,55 @@
 
                 </div>
 
-                <?php
-                $the_top_news_category = new WP_Query(array(
-                    'cat' => $redux_demo['top_news_category'],
-                    'posts_per_page' => '9'
-                        ))
-                ?>
-                <div class="box">
 
+                <div class="box">
+	                <?php
+	                $the_top_news_category = new WP_Query(array(
+		                'cat' => $redux_demo['top_news_category'],
+		                'posts_per_page' => 3
+	                ))
+	                ?>
                     <div class="box-header header-vimeo">
                         <h2><?php
-	                        if ($the_top_news_category->have_posts()  ){
-		                        $the_top_news_category->the_post();
-                            global $post;
+		                    if ($the_top_news_category->have_posts()  ){
+			                    $the_top_news_category->the_post();
+			                    global $post;
 
-                            $category = get_the_category($post->ID);
-                            echo $category[0]->cat_name;}
-                            ?></h2>
+			                    $category = get_the_category($post->ID);
+			                    echo $category[0]->cat_name;}
+		                    ?></h2>
 
-                    </div>
-                    <div class="box-content">
+                    </div><div class="box-content">
                         <div class="row">
-                            <?php
-                            $i = 1;
-
-                            while ($the_top_news_category->have_posts()) : $the_top_news_category->the_post();
-                                ?>
-
-
-                                <?php
-                                $i++;
-                                if ($i == 1):
-                                    ?>
-
-                                    <div class="col-md-6">
-
-                                        <div class="wrap-vid">
-                                            <div class="zoom-container">
-                                                <div class="zoom-caption">
-                                                    <span class="vimeo"><?php echo get_the_title() ?></span>
-                                                    <a href="<?php echo get_the_permalink() ?>">
-                                                        <i class="fa fa-play-circle-o fa-5x" style="color: #fff"></i>
-                                                    </a>
-                                                    <p><?php echo get_the_title() ?></p>
-                                                </div>
-                                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-responsive"/>
-                                            </div>
-                                            <h3 class="vid-name"><a href="#"><?php echo get_the_title(); ?></a></h3>
-                                            <div class="info">
-                                                <h5>By <?php echo get_the_author() ?></a></h5>
-                                                <span><i class="fa fa-calendar"></i><?php echo get_the_date(); ?></span> 
-
-                                            </div>
-                                        </div>
-                                        <p class="more" style="text-align: justify"><?php echo get_the_content('Read',10) ?>
-                                        </p> </div>
-
-                                <?php else : ?>
-
-
-                                    <div class="col-md-6">
-                                        <div class="post wrap-vid">
-
-                                            <div class="zoom-container">
-                                                <div class="zoom-caption">
-                                                    <span class="vimeo"><?php echo get_the_title() ?></span>
-                                                    <a href="<?php echo get_the_permalink() ?>">
-                                                        <i class="fa fa-play-circle-o fa-3x" style="color: #fff"></i>
-                                                    </a>
-                                                    <p><?php echo get_the_title() ?></p>
-                                                </div>
-                                                <img src="<?php echo get_the_post_thumbnail_url(); ?>" class="img-responsive"/>
-                                            </div>
-                                            <div class="wrapper">
-                                                <h5 class="vid-name"><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h5>
-                                                <div class="info">
-                                                    <h6>By <a href="#"><?php echo get_the_author() ?></a></h6>
-                                                    <span><i class="fa fa-calendar"></i><?php echo get_the_date(); ?></span>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                <?php endif; ?>
-                            <?php endwhile; ?>
+                            <?php while ($the_top_news_category->have_posts()):$the_top_news_category->the_post();?>
+                            <div class="col-md-6">
+                                <img src="<?php echo get_the_post_thumbnail_url() ?>" />
+                                <h3><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
+                                <span><i class="fa fa-heart"></i> 1,200 / <i class="fa fa-calendar"></i> <?php echo get_the_date() ?> <i class="fa fa-comment-o"> / </i> 10 <i class="fa fa-eye"></i> 945</span>
+                                <span class="rating">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half"></i>
+                                </span>
+                                <p>Marshall, Will, and Holly on a routine expedition, met the greatest earthquake ever known. High on the rapids, it struck their tiny raft! And plunged them down a thousand feet below???...</p>
+                            </div>
+<?php endwhile;?>
                         </div>
                     </div>
+
+
                 </div>
 	            <?php wp_reset_query(); ?>
 
 
-
+	            <?php
+	            $the_top_news_category = new WP_Query(array(
+		            'cat' => $redux_demo['top_news_category'],
+		            'posts_per_page' => 3
+	            ))
+	            ?>
                 <div class="box">
                     <div class="box-header header-natural">
                         <h2>Natural</h2>
