@@ -69,6 +69,7 @@
 
 <!-- /////////////////////////////////////////Content -->
 <div id="page-content" class="index-page container">
+
     <div class="row">
         <div id="main-content"><!-- background not working -->
             <div class="col-md-6">
@@ -198,6 +199,7 @@
                 </div>
             </div>
         </div>
+
         <div id="sidebar">
             <div class="col-md-3">
                 <!---- Start Widget ---->
