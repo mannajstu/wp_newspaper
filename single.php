@@ -11,7 +11,7 @@
 
 
 <!-- /////////////////////////////////////////Content -->
-<div id="page-content" class="index-page container">
+<div id="page-content" class="featured container" >
 
     <div class="row">
         <div id="main-content" class="col-md-12" ><!-- background not working -->
@@ -19,7 +19,7 @@
 
 				<?php
 
-				$the_feature_query = new WP_Query(array(
+				$the_single_post = new WP_Query(array(
 					'p'=>get_the_ID(),
 				))
 
@@ -31,7 +31,7 @@
 
 
                 <div class="box wrap-vid">
-					<?php if ($the_feature_query->have_posts()) : $the_feature_query->the_post(); ?>
+					<?php if ($the_single_post->have_posts()) : $the_single_post->the_post(); ?>
                         <div class="box-header header-natural">
 
                         </div>
