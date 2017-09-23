@@ -58,7 +58,10 @@ function arphabet_widgets_init() {
 	) );
 
 }
+
 add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+
 
 if(file_exists(dirname(__FILE__)).'/lib/ReduxCore/framework.php'){
     require_once (dirname(__FILE__) . '/lib/ReduxCore/framework.php');

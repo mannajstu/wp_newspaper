@@ -41,31 +41,7 @@
 <body <?php body_class(); ?>>
     <header>
 	<!--Top-->
-	<nav id="top">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6">
-					<strong><?php echo get_option( 'my_first_field'); ?></strong>
-				</div>
-				<div class="col-md-6">
-                                    <?php
 
-	wp_nav_menu( array(
-
-	    'theme_location' => 'my-custom-menu',
-
-	    'container_class' => 'list-inline top-link link' ) );
-
-	?>
-					<ul class="list-inline top-link link">
-						<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><i class="fa fa-home"></i> Home</a></li>
-						<li><a href="<?php echo esc_url( get_template_directory_uri() ); ?>/contact.php"><i class="fa fa-comments"></i> Contact</a></li>
-						<li><a href="#"><i class="fa fa-question-circle"></i> FAQ</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav>
 	
 	<!--Navigation-->
     <nav id="menu" class="navbar container">
