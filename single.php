@@ -60,12 +60,14 @@
 
 				<?php
                 $post_id= get_the_ID();
-                $post_category=get_the_category($post_id);
+				$post_category=get_the_category($post_id);
+				$post_category_id=$post_category[0]->cat_ID;
 				$the_related_post = new WP_Query(array(
-					'category_name'=> '$post_category',
+					'cat'=> $post_category_id,
+					'posts_per_page'=> 4,
 				))
 				?>
-                <?php echo $post_category?>
+
                 <div class="box">
                     <div class="box-header header-natural">
                         <h2><?php
@@ -81,20 +83,15 @@
                         <div class="row">
 							<?php while ($the_related_post->have_posts()) : $the_related_post->the_post(); ?>
                                 <div class="col-md-6">
-                                    <img src="images/7.jpg" />
-                                    <h3><a href="#"><?php echo get_the_title() ?></a></h3>
-                                    <span><i class="fa fa-heart"></i> 1,200 / <i class="fa fa-calendar"></i> 25/3/2015 / <i class="fa fa-comment-o"> / </i> 3 <i class="fa fa-eye"></i> 1007</span>
-                                    <span class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-half"></i>
-                                </span>
-                                    <p>There once was a story about a man who could turn invisible. I thought it was only a story??? until it happened to me. Ok, so here???s how it works: there???s this stuff called...</p>
-                                </div>
-							<?php endwhile;?>
-                        </div>
+                                    <img src="<?php echo get_the_post_thumbnail_url() ?>" />
+                                    <h3><a href="<?php echo get_post_permalink() ?>"><?php echo get_the_title() ?></a></h3>
+                                    <span> <i class="fa fa-calendar"></i> <?php echo get_the_date() ?>  </span>
+
+                                    <p><?php $content=get_the_content();
+	                                    $content=wp_trim_words("$content",'20');
+                                    echo $content; ?></p></div>
+	                    <?php endwhile;?>
+                    </div>
                     </div>
                 </div>
 
