@@ -280,16 +280,16 @@
         'title'            => __( 'Home Page Section ', 'redux-framework-demo' ),
         'fields'            => array(
             array(
-                'title'=>'Add First Section',
-                'id'=>'first_section',
-                'data'=>'category',
-                'type'  => 'select',
+	            'title'=>'Add First Section',
+	            'id'=>'first_section',
+	            'data'=>'category',
+	            'type'  => 'select',
             ),
             array(
-                'title'=>'Add Second Section',
-                'id'=>'second_section',
-                'data'=>'category',
-                'type'  => 'select',
+	            'title'=>'Add Second Section',
+	            'id'=>'second_section',
+	            'data'=>'category',
+	            'type'  => 'select',
             ),
 	        array(
 		        'title'=>'Add Third Section',

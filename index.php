@@ -88,14 +88,18 @@
 
 
                 <div class="box wrap-vid">
-                    <?php if ($the_feature_query->have_posts()) : $the_feature_query->the_post(); ?>
+
                         <div class="box-header header-natural">
                             <h2><?php
-                                global $post;
-                                $category = get_the_category($post->ID);
-                                echo $category[0]->cat_name;
-                                ?></h2>
+		                        while($the_feature_query->have_posts()) {
+			                        $the_feature_query->the_post();
+
+			                        $category = get_the_category($the_feature_query->the_post()->ID);
+			                        echo $category[0]->cat_name;}
+
+		                        ?></h2>
                         </div>
+	                <?php if ($the_feature_query->have_posts()) : $the_feature_query->the_post(); ?>
                         <div class="zoom-container">
                             <div class="zoom-caption">
 
@@ -157,7 +161,7 @@
 
 	            <?php
 	            $the_natural_category = new WP_Query(array(
-		            'cat' => $redux_demo['natural_category'],
+		            'cat' => $redux_demo['third_section'],
 		            'posts_per_page' => 2
 	            ))
 	            ?>
@@ -193,7 +197,7 @@
                     </div>
                 </div>
             </div>
-
+	        <?php wp_reset_query(); ?>
 
 
 
