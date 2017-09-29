@@ -76,12 +76,8 @@
                 <?php
                 global $redux_demo;
                 $the_feature_query = new WP_Query(array(
-                    'cat' => $redux_demo['first_section'],
-                    'posts_per_page ' => 1
-                        ))
-
-
-                ;
+	                'cat=3&posts_per_page=5',
+                ))
                 ?>
 
 
@@ -91,7 +87,8 @@
 
                         <div class="box-header header-natural">
                             <h2><?php
-		                        while($the_feature_query->have_posts()) {
+
+		                       if($the_feature_query->have_posts()) {
 			                        $the_feature_query->the_post();
 
 			                        $category = get_the_category($the_feature_query->the_post()->ID);
@@ -99,6 +96,8 @@
 
 		                        ?></h2>
                         </div>
+
+
 	                <?php if ($the_feature_query->have_posts()) : $the_feature_query->the_post(); ?>
                         <div class="zoom-container">
                             <div class="zoom-caption">
@@ -119,6 +118,7 @@
 
 
                     <?php endif; ?>
+
                     <?php wp_reset_query(); ?>
 
                 </div>
