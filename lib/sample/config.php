@@ -277,23 +277,23 @@
         'icon'             => 'el el-home'
     ) );
     Redux::setSection( $newspaper, array(
-        'title'            => __( 'Category', 'redux-framework-demo' ),
+        'title'            => __( 'Home Page Section ', 'redux-framework-demo' ),
         'fields'            => array(
             array(
-                'title'=>'Add Feature Category',
-                'id'=>'feature_category',
+                'title'=>'Add First Section',
+                'id'=>'first_section',
                 'data'=>'category',
                 'type'  => 'select',
             ),
             array(
-                'title'=>'Add Top News Category',
-                'id'=>'top_news_category',
+                'title'=>'Add Second Section',
+                'id'=>'second_section',
                 'data'=>'category',
                 'type'  => 'select',
             ),
 	        array(
-		        'title'=>'Add Natural News',
-		        'id'=>'natural_category',
+		        'title'=>'Add Third Section',
+		        'id'=>'third_section',
 		        'data'=>'category',
 		        'type'  => 'select',
 	        ),

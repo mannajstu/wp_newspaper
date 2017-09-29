@@ -56,6 +56,7 @@
 					<?php endif; ?>
 					<?php wp_reset_query(); ?>
 
+	                <?php comments_template( '', true ); ?>
                 </div>
 
 				<?php
@@ -78,10 +79,12 @@
 								echo $category[0]->cat_name;}
 
 							?></h2>
+	                    <?php wp_reset_query(); ?>
                     </div>
                     <div class="box-content">
                         <div class="row">
 							<?php while ($the_related_post->have_posts()) : $the_related_post->the_post(); ?>
+
                                 <div class="col-md-6">
                                     <img src="<?php echo get_the_post_thumbnail_url() ?>" />
                                     <h3><a href="<?php echo get_post_permalink() ?>"><?php echo get_the_title() ?></a></h3>
