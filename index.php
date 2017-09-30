@@ -109,7 +109,7 @@
                             </div>
                             <img src="<?php echo get_the_post_thumbnail_url() ?>" />
                         </div>
-                        <h3 class="vid-name"><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
+                        <h3 ><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
                         <div class="info">
                             <h5>By <?php echo get_the_author() ?></h5>
                             <span><i class="fa fa-calendar"></i><?php echo get_the_date() ?></span>

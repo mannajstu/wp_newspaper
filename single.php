@@ -71,14 +71,9 @@
 
                 <div class="box">
                     <div class="box-header header-natural">
-                        <h2><?php
-							while($the_related_post->have_posts()) {
-								$the_related_post->the_post();
-
-								$category = get_the_category($the_related_post->the_post()->ID);
-								echo $category[0]->cat_name;}
-
-							?></h2>
+                        <h2><?php      $post_id= get_the_ID();
+	                        echo get_the_category( $post_id )[0]->name;
+	                        ?></h2>
 	                    <?php wp_reset_query(); ?>
                     </div>
                     <div class="box-content">
