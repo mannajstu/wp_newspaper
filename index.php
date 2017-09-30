@@ -91,12 +91,8 @@
 
                         <div class="box-header header-natural">
 
-                            <h2><?php $n=new WP_Query(array(
-		                            'cat' => $redux_demo['first_section'],
-
-	                            ));
-	                            $row=mysqli_fetch_row($n);
-	                            var_dump($row);
+               <h2><?php       $redux_demo['second_section'];
+               echo get_the_category_by_ID( $redux_demo['first_section']);
                                 ?></h2>
 
 
@@ -136,7 +132,9 @@
 	            ?>
                 <div class="box">
                     <div class="box-header header-natural">
-                        <h2></h2>
+                       <h2><?php       ;
+		                        echo get_the_category_by_ID( $redux_demo['second_section']);
+		                        ?></h2>
                     </div>
                     <div class="box-content">
                         <div class="row">
@@ -167,7 +165,9 @@
 	            ?>
                 <div class="box">
                     <div class="box-header header-natural">
-                        <h2></h2>
+                        <h2><?php       ;
+		                    echo get_the_category_by_ID( $redux_demo['third_section']);
+		                    ?></h2>
                     </div>
                     <div class="box-content">
                         <div class="row">
