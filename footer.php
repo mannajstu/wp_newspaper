@@ -16,29 +16,22 @@
 					<div class="col-md-4 col-footer footer-2">
 						<div class="footer-heading"><h4>Tags</h4></div>
 						<div class="content">
-							<a href="#">animals</a>
-							<a href="#">cooking</a>
-							<a href="#">countries</a>
-							<a href="#">city</a>
-							<a href="#">children</a>
-							<a href="#">home</a>
-							<a href="#">likes</a>
-							<a href="#">photo</a>
-							<a href="#">link</a>
-							<a href="#">law</a>
-							<a href="#">shopping</a>
-							<a href="#">skate</a>
-							<a href="#">scholl</a>
-							<a href="#">video</a>
-							<a href="#">travel</a>
-							<a href="#">images</a>
-							<a href="#">love</a>
-							<a href="#">lists</a>
-							<a href="#">makeup</a>
-							<a href="#">media</a>
-							<a href="#">password</a>
-							<a href="#">pagination</a>
-							<a href="#">wildlife</a>
+							<?php
+							if(is_single()){ $posttags = get_the_tags();}
+							else{
+								$posttags = get_tags();
+							}
+
+							$count=0;
+							if ($posttags) {
+								foreach($posttags as $tag) {
+									$count++;
+									echo '<a href="'.get_tag_link($tag->term_id).'">'.$tag->name.'</a> ';
+									if( $count >15 ) break;
+								}
+							}?>
+							
+
 						</div>
 					</div>
 					<div class="col-md-4 col-footer footer-3">

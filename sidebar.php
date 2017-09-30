@@ -12,23 +12,20 @@
 	<div class="widget wid-tags">
 		<div class="heading"><h4>Tags</h4></div>
 		<div class="content">
-			<a href="#">animals</a>
-			<a href="#">cooking</a>
-			<a href="#">countries</a>
-			<a href="#">home</a>
-			<a href="#">likes</a>
-			<a href="#">photo</a>
-			<a href="#">link</a>
-			<a href="#">video</a>
-			<a href="#">travel</a>
-			<a href="#">images</a>
-			<a href="#">love</a>
-			<a href="#">lists</a>
-			<a href="#">makeup</a>
-			<a href="#">media</a>
-			<a href="#">password</a>
-			<a href="#">pagination</a>
-			<a href="#">pictures</a>
+           <?php
+           if(is_single()){ $posttags = get_the_tags();}
+else{
+	$posttags = get_tags();
+}
+
+            $count=0;
+            if ($posttags) {
+            foreach($posttags as $tag) {
+            $count++;
+            echo '<a href="'.get_tag_link($tag->term_id).'">'.$tag->name.'</a> ';
+            if( $count >10 ) break;
+            }
+            }?>
 		</div>
 	</div>
 	<!---- Start Widget ---->
