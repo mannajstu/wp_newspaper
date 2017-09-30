@@ -76,25 +76,24 @@
                 <?php
                 global $redux_demo;
                 $the_feature_query = new WP_Query(array(
-	                'cat=3&posts_per_page=5',
+	                'cat' => $redux_demo['first_section'],
+	                'posts_per_page' => 1
                 ))
                 ?>
-
+<!--	            --><?php //         echo "<pre>";
+//	            echo $the_feature_query->query->cat;
+//	            var_dump($the_feature_query);
+//	            echo "</pre>"; ?>
 
 
 
                 <div class="box wrap-vid">
 
                         <div class="box-header header-natural">
-                            <h2><?php
 
-		                       if($the_feature_query->have_posts()) {
-			                        $the_feature_query->the_post();
+                            <h2><?php echo  $the_feature_query[0]->category_name ;?></h2>
 
-			                        $category = get_the_category($the_feature_query->the_post()->ID);
-			                        echo $category[0]->cat_name;}
 
-		                        ?></h2>
                         </div>
 
 
@@ -131,17 +130,11 @@
 	            ?>
                 <div class="box">
                     <div class="box-header header-natural">
-                        <h2><?php
-                           while($the_top_news_category->have_posts()) {
-                                $the_top_news_category->the_post();
-
-	                        $category = get_the_category($the_top_news_category->the_post()->ID);
-	                        echo $category[0]->cat_name;}
-
-	                        ?></h2>
+                        <h2></h2>
                     </div>
                     <div class="box-content">
                         <div class="row">
+	                        <?php if ($the_top_news_category->have_posts()) : ?>
 				            <?php while ($the_top_news_category->have_posts()) : $the_top_news_category->the_post(); ?>
                                 <div class="col-md-6">
                                     <img src="<?php echo get_the_post_thumbnail_url() ?>" />
@@ -152,6 +145,7 @@
 		                                $content=wp_trim_words("$content",'20');
 		                                echo $content; ?></p></div>
 				            <?php endwhile;?>
+	                        <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -167,18 +161,12 @@
 	            ?>
                 <div class="box">
                     <div class="box-header header-natural">
-                        <h2><?php
-	                        while($the_natural_category->have_posts()) {
-		                        $the_natural_category->the_post();
-
-		                        $category = get_the_category($the_natural_category->the_post()->ID);
-		                        echo $category[0]->cat_name;}
-
-	                        ?></h2>
+                        <h2></h2>
                     </div>
                     <div class="box-content">
                         <div class="row">
-	                        <?php while ($the_natural_category->have_posts()) : $the_natural_category->the_post(); ?>
+	                        <?php while ($the_natural_category->have_posts())  : $the_natural_category->the_post(); ?>
+
                             <div class="col-md-6">
                                 <img src="<?php echo get_the_post_thumbnail_url() ?>" />
                                 <h3><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
@@ -192,7 +180,8 @@
                                 </span>
                                 <p>There once was a story about a man who could turn invisible. I thought it was only a story??? until it happened to me. Ok, so here???s how it works: there???s this stuff called...</p>
                             </div>
-                            <?php endwhile;?>
+
+	                        <?php endwhile; ?>
                         </div>
                     </div>
                 </div>
