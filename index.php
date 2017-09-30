@@ -91,7 +91,13 @@
 
                         <div class="box-header header-natural">
 
-                            <h2><?php echo  $the_feature_query[0]->category_name ;?></h2>
+                            <h2><?php $n=new WP_Query(array(
+		                            'cat' => $redux_demo['first_section'],
+
+	                            ));
+	                            $row=mysqli_fetch_row($n);
+	                            var_dump($row);
+                                ?></h2>
 
 
                         </div>
