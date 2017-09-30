@@ -115,7 +115,9 @@
                             <span><i class="fa fa-calendar"></i><?php echo get_the_date() ?></span>
 
                         </div>
-                        <p class="more " style="text-align: justify"><?php echo get_the_content() ?></p>
+                        <p class="more " style="text-align: justify"><?php $content=get_the_content();
+	                        $content=wp_trim_words("$content",'20');
+	                        echo $content; ?></p></p>
 
 
                     <?php endif; ?>
@@ -143,7 +145,7 @@
                                 <div class="col-md-6">
                                     <img src="<?php echo get_the_post_thumbnail_url() ?>" />
                                     <h3><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
-                                    <span> <i class="fa fa-calendar"></i> <?php echo get_the_date() ?> ></i> 1007</span>
+                                    <span> <i class="fa fa-calendar"></i> <?php echo get_the_date() ?> ></i> </span>
 
                                     <p><?php $content=get_the_content();
 		                                $content=wp_trim_words("$content",'20');
