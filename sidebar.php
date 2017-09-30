@@ -1,4 +1,4 @@
-<div <?php if (is_home()){echo "class='col-md-6'";} elseif (is_single()){echo "class='col-md-12'";}?>>
+<div <?php if (is_front_page()||is_home()){echo "class='col-md-6'";} elseif (is_single()){echo "class='col-md-12'";}?>>
 	<!---- Start Widget ---->
 	<div class="widget wid-tags">
 		<div class="heading"><h4>Search</h4></div>

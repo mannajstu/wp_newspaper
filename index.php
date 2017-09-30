@@ -1,3 +1,11 @@
+<?php
+/**
+ * Template Name: Home Page
+ *
+ * @package WordPress
+
+ */
+?>
 <?php get_header(); ?>
 
 <div class="featured container">
@@ -42,7 +50,7 @@
                                     <h3><?php echo $slider['description']; ?></h3>
                                     <br>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     <?php endforeach; ?>
                     <!--                   end slider-->
@@ -111,8 +119,8 @@
                         </div>
                         <h3 ><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
                         <div class="info">
-                            <h5>By <?php echo get_the_author() ?></h5>
-                            <span><i class="fa fa-calendar"></i><?php echo get_the_date() ?></span>
+                            <h5>By <?php echo get_the_author().' '.'on'.' '.'<span><i class="fa fa-calendar"></i>'. get_the_date() ?></span>
+                                </h5>
 
                         </div>
                         <p class="more " style="text-align: justify"><?php $content=get_the_content();
