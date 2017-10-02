@@ -151,7 +151,8 @@
 	                        <?php if ($the_top_news_category->have_posts()) : ?>
 				            <?php while ($the_top_news_category->have_posts()) : $the_top_news_category->the_post(); ?>
                                 <div class="col-md-6">
-                                    <img src="<?php echo get_the_post_thumbnail_url() ?>" />
+                                    <div class="zoom-container"><img src="<?php echo get_the_post_thumbnail_url() ?>" /></div>
+
                                     <h3><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
                                     <span> <i class="fa fa-calendar"></i> <?php echo get_the_date() ?> ></i> </span>
 
@@ -184,7 +185,7 @@
 	                        <?php while ($the_natural_category->have_posts())  : $the_natural_category->the_post(); ?>
 
                             <div class="col-md-6">
-                                <img src="<?php echo get_the_post_thumbnail_url() ?>" />
+                                <div class="zoom-container"><img src="<?php echo get_the_post_thumbnail_url() ?>" /></div>
                                 <h3><a href="<?php echo get_the_permalink() ?>"><?php echo get_the_title() ?></a></h3>
                                 <span><i class="fa fa-heart"></i> 1,200 / <i class="fa fa-calendar"></i> 25/3/2015 / <i class="fa fa-comment-o"> / </i> 3 <i class="fa fa-eye"></i> 1007</span>
                                 <span class="rating">
@@ -220,14 +221,15 @@
 		                    foreach( $recent_posts as $recent ){?>
 
 <a href="<?php echo get_permalink($recent['ID'])?>">
-                        <h6> <?php echo $recent['post_title']?></h6>
-                                <p style="text-align: justify ; color:black"><?php $content=wp_trim_words("$recent[post_content]",'20');
-                                    echo $content;
-                                    ?></p> <ul class="list-inline">
+                        <h6> <?php echo $recent['post_title']?></h6></a>
+                                <ul class="list-inline">
                             <li style=" color:black"><i class="fa fa-calendar" ></i><?php echo get_the_date('',"$recent[ID]") ?></li>
+                                </ul>
+    <p style="text-align: justify ; color:black"><?php $content=wp_trim_words("$recent[post_content]",'20');
+			echo $content;
+			?> </p>
 
-                        </ul>
-</a>
+
 
 
 

@@ -44,42 +44,21 @@ else{
 					</ul>
 				</div>
 			</div>
-			<div class="post">
-				<a href="single.html">
-					<img src="images/ava-2.png" class="img-circle"/>
-				</a>
-				<div class="wrapper">
-					<a href="#"><h5>Curabitur tincidunt porta lorem.</h5></a>
-					<ul class="list-inline">
-						<li><i class="fa fa-calendar"></i>25/3/2015</li>
-						<li><i class="fa fa-thumbs-up"></i>1,200</li>
-					</ul>
-				</div>
-			</div>
-			<div class="post">
-				<a href="single.html">
-					<img src="images/ava-3.jpeg" class="img-circle"/>
-				</a>
-				<div class="wrapper">
-					<a href="#"><h5>Curabitur tincidunt porta lorem.</h5></a>
-					<ul class="list-inline">
-						<li><i class="fa fa-calendar"></i>25/3/2015</li>
-						<li><i class="fa fa-thumbs-up"></i>1,200</li>
-					</ul>
-				</div>
-			</div>
-			<div class="post">
-				<a href="single.html">
-					<img src="images/ava-4.jpg" class="img-circle"/>
-				</a>
-				<div class="wrapper">
-					<a href="#"><h5>Curabitur tincidunt porta lorem.</h5></a>
-					<ul class="list-inline">
-						<li><i class="fa fa-calendar"></i>25/3/2015</li>
-						<li><i class="fa fa-thumbs-up"></i>1,200</li>
-					</ul>
-				</div>
-			</div>
+            <ol class="commentlist">
+				<?php
+				//Gather comments for a specific page/post
+				$comments = get_comments(array(
+
+					'status' => 'approve' //Change this to the type of comments to be displayed
+				));
+
+				//Display the list of comments
+				wp_list_comments(array(
+					'per_page' => 10, //Allow comment pagination
+					'reverse_top_level' => false //Show the oldest comments at the top of the list
+				), $comments);
+				?>
+            </ol>
 		</div>
 	</div>
 	<!---- Start Widget ---->
@@ -92,37 +71,41 @@ else{
 	<div class="widget wid-categoty">
 		<div class="heading"><h4>Category</h4></div>
 		<div class="content">
-			<select class="col-md-12">
-				<option>Mustard</option>
-				<option>Ketchup</option>
-				<option>Relish</option>
-			</select>
+
+			<select class="col-md-12" id="category">
+				<?php
+				$categories = get_categories( array(
+					'orderby' => 'name',
+					'order'   => 'ASC'
+				) );
+				echo '<option>'.'All Category'.'</option>';
+				foreach( $categories as $category ) {
+
+					echo '<option value="'.get_category_link( $category->term_id ).'">' .$category->name.'('. $category->count.')'.'</a>'. '</option> ';
+
+
+
+
+				}
+				?>
+</select>
 		</div>
 	</div>
+    <script>
+        document.getElementById("category").onchange = function() {
+            if (this.selectedIndex!==0) {
+                window.location.href = this.value;
+            }
+        };
+    </script>
 	<!---- Start Widget ---->
 	<div class="widget wid-calendar">
 		<div class="heading"><h4>Calendar</h4></div>
 		<div class="content">
-			<center><form action="" role="form">
-					<div class="">
-						<div class="input-group date form_date" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">                </div>
-						<input type="hidden" id="dtp_input2" value="" /><br/>
-					</div>
-				</form></center>
+			<?php get_calendar(true); ?>
 		</div>
 	</div>
 	<!---- Start Widget ---->
-	<div class="widget wid-recent-post">
-		<div class="heading"><h4>Recent Posts</h4></div>
-		<div class="content">
-			<span>Creativity is about the journey <a href="#">your mind takes</a></span>
-			<span>About the journey <a href="#">your mind</a></span>
-			<span>The journey <a href="#">your</a></span>
-			<span>Journey is about the journey <a href="#">your mind mind</a></span>
-			<span>Creativity is about the journey <a href="#">your mind takes</a></span>
-			<span>About the journey <a href="#">your mind</a></span>
 
-		</div>
-	</div>
 
 </div>

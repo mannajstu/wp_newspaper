@@ -48,9 +48,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="copy-right">
-			<p>Copyright 2015 - <a href="https://www.365bootstrap.com" target="_blank">Bootstrap Themes</a> by 365bootstrap</p>
-		</div>
+
 	</footer>
 	<!-- Footer -->
 	<!-- JS -->

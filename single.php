@@ -11,7 +11,7 @@
 
 
 <!-- /////////////////////////////////////////Content -->
-<div id="page-content" class="featured container" >
+<div id="page-content" class="index-page container">
 
     <div class="row">
         <div id="main-content" class="col-md-12" ><!-- background not working -->
@@ -81,7 +81,7 @@
 							<?php while ($the_related_post->have_posts()) : $the_related_post->the_post(); ?>
 
                                 <div class="col-md-6">
-                                    <img src="<?php echo get_the_post_thumbnail_url() ?>" />
+                                    <div class="zoom-container"><img src="<?php echo get_the_post_thumbnail_url() ?>" /></div>
                                     <h3><a href="<?php echo get_post_permalink() ?>"><?php echo get_the_title() ?></a></h3>
                                     <span> <i class="fa fa-calendar"></i> <?php echo get_the_date() ?>  </span>
 
